@@ -1,0 +1,21 @@
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data & Outputs
+input/
+output_report.xlsx
+*.xlsx
+*.csv
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
