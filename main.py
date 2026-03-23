@@ -6,6 +6,10 @@ import cv2
 import pandas as pd
 import google.generativeai as genai
 from typing import Dict, Any, Optional
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Constants for file paths and parameters
 INPUT_DIR = "input"
@@ -31,9 +35,9 @@ def setup_gemini_api() -> None:
     Initialize Gemini API configuration.
     Assumes GEMINI_API_KEY is available in environment variables.
     """
-    api_key = "AIzaSyDES9LkuilFJN4hxqsHVRWXUSoeTzJECRA"
+    api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        raise ValueError("GEMINI_API_KEY environment variable is missing. Please set it appropriately.")
+        raise ValueError("GEMINI_API_KEY environment variable is missing. Please set it appropriately in the .env file.")
     genai.configure(api_key=api_key)
 
 def preprocess_image(image_path: str) -> Optional[str]:
